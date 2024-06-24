@@ -131,7 +131,13 @@ const BusForm = () => {
                 setTimeout(() => {
                     navigate('/home');
                 }, 4000);
-                // sendConfirmationEmail(data)
+                AxiosInstance.post('send-confirmation-email/', { email: user.email})
+                .then(response => {
+                    console.log('Email sent successfully:', response.data);
+                })
+                .catch(error => {
+                    console.error('Error sending email:', error);
+                });
             })
             .catch(error => {
                 console.error('Error during submission:', error);
