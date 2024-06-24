@@ -1,0 +1,56 @@
+.myBackground {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(63,209,251);
+  background: radial-gradient(circle, rgba(63,209,251,1) 0%, rgba(180,70,252,1) 100%);
+  
+}
+
+.whiteBox {
+  background-color: white;
+  padding: 20px;
+  min-width: 350px;
+  height: 55%;
+  width: 20%;
+  border: 1px solid #333;
+
+}
+
+.itemBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  height: 80px;
+}
+
+.itemBox.bg{
+  display: flex;
+  justify-content: center;
+  background: rgb(91, 10, 152);
+  font-size: 18px;
+  color: white;
+}
+
+.title {
+  font-size: 30px;
+  color: #333;
+}
+
+.myForm {
+  width: 100%;
+}
+
+.myButton {
+  width: 100%;
+  background: rgb(91, 10, 152)!important;
+
+}
+
+.busFormTextField {
+  width: 25%;
+}

@@ -1,0 +1,15 @@
+from django.urls import path, include
+from .views import *
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register('learner', LearnerViewset, basename='learner')
+
+urlpatterns = router.urls
+
+urlpatterns = [
+    path('', include(router.urls)),
+    path('apply-bus/', ApplicationView.as_view(), name='apply-bus'),
+    # path('send-email/', SendEmailView.as_view(), name='send-email'),
+    path('learner-list/', LearnerListView.as_view(), name='learner-list'),
+]
