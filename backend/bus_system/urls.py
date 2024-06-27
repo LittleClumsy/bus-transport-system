@@ -13,4 +13,5 @@ urlpatterns = [
     path('send-confirmation-email/', send_confirmation_email_view,
          name='send_confrimation_email'),
     path('learner-list/', LearnerListView.as_view(), name='learner-list'),
+    path('all-busses/', AllBusesView.as_view(), name='all-busses'),
 ]
