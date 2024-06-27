@@ -72,14 +72,14 @@ export default function Navbar(props) {
             </ListItem>
           )}
 
-            <ListItem disablePadding>
-              <ListItemButton component={Link} to="/busform" selected={"/busform" === path}>
-                <ListItemIcon>
-                  <InfoIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Bus Form"} />
-              </ListItemButton>
-            </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton component={Link} to="/busform" selected={"/busform" === path}>
+              <ListItemIcon>
+                <InfoIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Bus Form"} />
+            </ListItemButton>
+          </ListItem>
 
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/create" selected={"/create" === path}>
@@ -119,7 +119,7 @@ export default function Navbar(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, background: 'radial-gradient(circle, rgba(63,209,251,1) 0%, rgba(180,70,252,1) 100%)' }}>
         <Toolbar>
           <IconButton
             color="inherit"
