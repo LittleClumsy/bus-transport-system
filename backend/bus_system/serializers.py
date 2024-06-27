@@ -16,3 +16,18 @@ class ApplicationSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'waiting_list_number': {'required': False, 'allow_null': True}
         }
+
+class BusOneSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BusOne
+        fields = '__all__'
+
+class BusTwoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BusTwo
+        fields = '__all__'
+
+class BusThreeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BusThree
+        fields = '__all__'

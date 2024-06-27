@@ -97,3 +97,17 @@ def send_confirmation_email_view(request):
         send_confirmation_email(email)
         return JsonResponse({'message': 'Email sent successfully'}, status=200)
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+class AllBusesView(APIView):
+    def get(self, request):
+        bus_one_data = BusOne.objects.all()
+        bus_two_data = BusTwo.objects.all()
+        bus_three_data = BusThree.objects.all()
+
+        bus_one_serializer = BusOneSerializer(bus_one_data, many=True)
+        bus_two_serializer = BusTwoSerializer(bus_two_data, many=True)
+        bus_three_serializer = BusThreeSerializer(bus_three_data, many=True)
+
+        combined_data = bus_one_serializer.data + bus_two_serializer.data + bus_three_serializer.data
+
+        return Response(combined_data, status=status.HTTP_200_OK)

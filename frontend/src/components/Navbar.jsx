@@ -67,7 +67,7 @@ export default function Navbar(props) {
                 <ListItemIcon>
                   <InfoIcon />
                 </ListItemIcon>
-                <ListItemText primary={"Reports"} />
+                <ListItemText primary={"Bus Reports"} />
               </ListItemButton>
             </ListItem>
           )}
