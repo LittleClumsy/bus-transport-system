@@ -42,8 +42,7 @@ const CreateLearner = () => {
                 setShowMessage(true);
                 setTimeout(() => {
                     navigate('/yourlearner');
-                }, 4000);
-                // sendConfirmationEmail(data)
+                }, 4000)
             })
             .catch(error => {
                 console.error('Error during submission:', error);
@@ -53,22 +52,9 @@ const CreateLearner = () => {
         console.log('User ID:', user.id);
     };
 
-    // const sendConfirmationEmail = (data) => {
-    //     AxiosInstance.post('send-email/', {
-    //         email: user.email,
-    //         learner_name: data.learner_name
-    //     })
-    //         .then(response => {
-    //             console.log('Email sent successfully:', response.data);
-    //         })
-    //         .catch(error => {
-    //             console.error('Error sending email:', error);
-    //         });
-    // };
-
     return (
         <div>
-            {ShowMessage &&( <MyMessage text={"You have successfully added a learner. You will be directed to the login page."} /> )}
+            {ShowMessage && (<MyMessage text={"You have successfully added a learner. You will be directed to your learners."} />)}
             <form onSubmit={handleSubmit(submission)}>
 
                 <Box sx={{ marginBottom: '10px' }}>

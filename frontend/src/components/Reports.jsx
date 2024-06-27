@@ -26,12 +26,6 @@ const Reports = () => {
             });
     },[]);
 
-    // useEffect(() => {
-    //     if (user) {
-    //         GetData();
-    //     }
-    // }, [user])
-
     const columns = [
         { accessorKey: 'learner_id', header: 'Learner ID' },
         { accessorKey: 'bus_route', header: 'Bus Route' },
