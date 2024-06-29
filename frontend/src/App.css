@@ -24,7 +24,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: white;
+  /* background-color: white; */
   height: 80px;
 }
 
@@ -53,4 +53,134 @@
 
 .busFormTextField {
   width: 25%;
+}
+
+.myWebBackground {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  opacity: 40%;
+  background: rgb(212, 90, 249);
+  z-index: -1;
+}
+
+.tableBackground {
+  width: 100%;
+  height: 100vh;
+  opacity: 100%;
+  background: rgb(63,209,251);
+  background: radial-gradient(circle, rgba(63,209,251,1) 0%, rgba(180,70,252,1) 100%);
+  z-index: -1;
+}
+
+.home-page-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 600px;
+  margin-top: 50px;
+  position: relative;
+  margin-left: 500px;
+}
+
+.home-page-img {
+  width: 100%;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-heading{
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding:10px;
+  opacity: 100% !important;
+}
+
+.myWebBackgroundWrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 390px) {
+  .welcome-heading {
+    font-size: 1.5rem;
+    margin: 10px;
+  }
+
+  .home-page-img-container {
+    width: 90%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 390px) {
+  .welcome-heading {
+    font-size: 1.2rem;
+    margin: 5px;
+  }
+
+  .home-page-img-container {
+    width: 95%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 390px) {
+  .whiteBox {
+    min-width: 300px;
+    width: 70%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .itemBox {
+    height: 60px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .myButton {
+    font-size: 16px;
+  }
+
+  .busFormTextField {
+    width: 50%;
+  }
+}
+
+@media (max-width: 390px) {
+  .whiteBox {
+    min-width: 200px;
+    width: 90%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .itemBox {
+    height: 50px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .myButton {
+    font-size: 14px;
+  }
+
+  .busFormTextField {
+    width: 75%;
+  }
 }

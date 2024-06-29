@@ -42,8 +42,11 @@ class Applications(models.Model):
     dropoff_name = models.CharField(max_length=15)
     pickup_time = models.CharField(max_length=10)
     dropoff_time = models.CharField(max_length=10)
-    application_status = models.Choices(
-        'Applied', 'Waiting List', 'Successful')
+    application_status = models.CharField(max_length=20, choices=[
+        ('Applied', 'Applied'),
+        ('Waiting List', 'Waiting List'),
+        ('Successful', 'Successful')
+    ])
     waiting_list_number = models.IntegerField(null=True, blank=True)
     application_date = models.DateField(auto_now_add=True)
     parent_id = models.CharField(max_length=5)

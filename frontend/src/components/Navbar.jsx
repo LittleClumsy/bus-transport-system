@@ -21,6 +21,12 @@ import AxiosInstance from './AxiosInstance';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import Grid from '@mui/material/Grid';
+import school_logo from '../assets/School_logo.webp';
+import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
+import PersonIcon from '@mui/icons-material/Person';
+
 
 const drawerWidth = 240;
 
@@ -49,7 +55,7 @@ export default function Navbar(props) {
   const myDrawer = (
     <div>
       <Toolbar />
-      <Box sx={{ overflow: 'auto' }}>
+      <Box sx={{ overflow: 'visible' }}>
         <List>
 
           <ListItem disablePadding>
@@ -75,7 +81,7 @@ export default function Navbar(props) {
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/busform" selected={"/busform" === path}>
               <ListItemIcon>
-                <InfoIcon />
+                <DirectionsBusIcon />
               </ListItemIcon>
               <ListItemText primary={"Bus Form"} />
             </ListItemButton>
@@ -84,7 +90,7 @@ export default function Navbar(props) {
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/create" selected={"/create" === path}>
               <ListItemIcon>
-                <AddIcon />
+                <PersonAddIcon />
               </ListItemIcon>
               <ListItemText primary={"Register Learner"} />
             </ListItemButton>
@@ -94,7 +100,7 @@ export default function Navbar(props) {
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/yourlearner" selected={"/yourlearner" === path}>
               <ListItemIcon>
-                <InfoIcon />
+                <PeopleOutlineIcon />
               </ListItemIcon>
               <ListItemText primary={"Your Learners"} />
             </ListItemButton>
@@ -109,7 +115,6 @@ export default function Navbar(props) {
               <ListItemText primary={"Logout"} />
             </ListItemButton>
           </ListItem>
-
         </List>
       </Box>
     </div>
@@ -128,10 +133,14 @@ export default function Navbar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Grid container justifyContent="space-between">
-            <Typography variant="h6" noWrap component="div">
-              Impumelelo High School Bus System
+          <Grid container justifyContent="space-between" alignItems='center'>
+          <Box display="flex" alignItems='center'>
+          <img src={school_logo} alt="School Logo" style={{ width: '50px', marginRight:'10px'}} />
+            <Typography variant="h6" noWrap component="div" >
+              IMPUMELELO HIGH SCHOOL 
             </Typography>
+            </Box>
+            <PersonIcon style={{position:'relative',}}/>
             <Typography variant="h6" >
               {user ? user.email : ""}
             </Typography>
@@ -146,7 +155,11 @@ export default function Navbar(props) {
           display: { xs: 'none', sm: 'block' },
           width: drawerWidth,
           flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+          [`& .MuiDrawer-paper`]: { width: drawerWidth, 
+            boxSizing: 'border-box',
+            background: 'radial-gradient(circle, rgba(63,209,251,1) 0%, rgba(180,70,252,1) 100%)',
+            color: 'white',
+          },
         }}
       >
 
@@ -170,7 +183,7 @@ export default function Navbar(props) {
 
       </Drawer>
 
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 0.2 }}>
         <Toolbar />
 
         {content}

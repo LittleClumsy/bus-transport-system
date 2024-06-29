@@ -24,7 +24,7 @@ const Reports = () => {
                 console.error('Error fetching bus data:', error);
                 setLoading(false);
             });
-    },[]);
+    }, []);
 
     const columns = [
         { accessorKey: 'learner_id', header: 'Learner ID' },
@@ -38,12 +38,15 @@ const Reports = () => {
     ];
 
     return (
-        <div>
-            {loading ? (
-                <p>Loading...</p>
-            ) : (
-                <MaterialReactTable columns={columns} data={myData} />
-            )}
+        <div className='myWebBackgroundWrapper'>
+            <div className='myWebBackground'></div>
+            <div>
+                {loading ? (
+                    <p>Loading...</p>
+                ) : (
+                    <MaterialReactTable columns={columns} data={myData}  />
+                )}
+            </div>
         </div>
     );
 };
