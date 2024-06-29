@@ -61,9 +61,11 @@ const YourLearner = () => {
     );
 
     return (
+        <div className='myWebBackgroundWrapper'>
+    <div className='myWebBackground'></div>
         <div>
             {loading ? <p>Loading data...</p> :
-                <MaterialReactTable
+                <MaterialReactTable className="tableBackground"
                     columns={columns}
                     data={myData}
                     enableRowActions
@@ -81,9 +83,8 @@ const YourLearner = () => {
                     )}
                 />
             }
-
-
         </div>
+    </div>
     )
 };
 

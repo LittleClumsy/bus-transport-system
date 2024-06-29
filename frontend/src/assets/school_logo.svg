@@ -1,0 +1,10 @@
+
+<svg height="200" width="200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="95" stroke="black" stroke-width="3" fill="white" />
+  <g fill="black">
+    <path d="M70,100 Q90,70 110,100 Q130,70 150,100" />
+    <path d="M90,100 Q90,120 110,120 Q110,140 130,140" />
+    <path d="M100,100 L100,160" />
+    <circle cx="100" cy="70" r="5" fill="black" />
+  </g>
+</svg>
