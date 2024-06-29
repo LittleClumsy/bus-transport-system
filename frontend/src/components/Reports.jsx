@@ -1,9 +1,10 @@
 import AxiosInstance from "./AxiosInstance"
 import { React, useEffect, useState, useMemo } from 'react'
-import { Box, IconButton } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { MaterialReactTable } from 'material-react-table'
-import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
+import { Edit as EditIcon, Delete as DeleteIcon, Padding } from '@mui/icons-material';
 import { Link } from "react-router-dom";
+
 import { useAuth } from './AuthContext';
 
 
@@ -40,7 +41,13 @@ const Reports = () => {
     return (
         <div className='myWebBackgroundWrapper'>
             <div className='myWebBackground'></div>
-            <div>
+            <div className="page-content">
+            <Box sx={{ marginBottom: '10px', borderRadius: '10px' }}>
+                    <Typography className='itemBox bg'>
+                        Bus Reports
+                    </Typography>
+
+                </Box>
                 {loading ? (
                     <p>Loading...</p>
                 ) : (
