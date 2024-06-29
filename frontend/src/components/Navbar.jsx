@@ -61,7 +61,7 @@ export default function Navbar(props) {
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/home" selected={"/home" === path}>
               <ListItemIcon>
-                <HomeIcon />
+                <HomeIcon sx={{ color: 'white' }} />
               </ListItemIcon>
               <ListItemText primary={"Home"} />
             </ListItemButton>
@@ -71,7 +71,7 @@ export default function Navbar(props) {
             <ListItem disablePadding>
               <ListItemButton component={Link} to="/reports" selected={"/reports" === path}>
                 <ListItemIcon>
-                  <InfoIcon />
+                  <InfoIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
                 <ListItemText primary={"Bus Reports"} />
               </ListItemButton>
@@ -81,7 +81,7 @@ export default function Navbar(props) {
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/busform" selected={"/busform" === path}>
               <ListItemIcon>
-                <DirectionsBusIcon />
+                <DirectionsBusIcon sx={{ color:  'white'}} />
               </ListItemIcon>
               <ListItemText primary={"Bus Form"} />
             </ListItemButton>
@@ -90,7 +90,7 @@ export default function Navbar(props) {
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/create" selected={"/create" === path}>
               <ListItemIcon>
-                <PersonAddIcon />
+                <PersonAddIcon sx={{ color: 'white' }} />
               </ListItemIcon>
               <ListItemText primary={"Register Learner"} />
             </ListItemButton>
@@ -100,7 +100,7 @@ export default function Navbar(props) {
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/yourlearner" selected={"/yourlearner" === path}>
               <ListItemIcon>
-                <PeopleOutlineIcon />
+                <PeopleOutlineIcon sx={{ color:  'white'}} />
               </ListItemIcon>
               <ListItemText primary={"Your Learners"} />
             </ListItemButton>
@@ -110,7 +110,7 @@ export default function Navbar(props) {
           <ListItem disablePadding>
             <ListItemButton onClick={logoutUser}>
               <ListItemIcon>
-                <LogoutIcon />
+                <LogoutIcon sx={{ color:  'white' }} />
               </ListItemIcon>
               <ListItemText primary={"Logout"} />
             </ListItemButton>
@@ -131,16 +131,16 @@ export default function Navbar(props) {
             onClick={changeOpenStatus}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ color: 'pink' }} />
           </IconButton>
           <Grid container justifyContent="space-between" alignItems='center'>
-          <Box display="flex" alignItems='center'>
-          <img src={school_logo} alt="School Logo" style={{ width: '50px', marginRight:'10px'}} />
-            <Typography variant="h6" noWrap component="div" >
-              IMPUMELELO HIGH SCHOOL 
-            </Typography>
+            <Box display="flex" alignItems='center'>
+              <img src={school_logo} alt="School Logo" style={{ width: '50px', marginRight: '10px' }} />
+              <Typography variant="h6" noWrap component="div" >
+                IMPUMELELO HIGH SCHOOL
+              </Typography>
             </Box>
-            <PersonIcon style={{position:'relative',}}/>
+            <PersonIcon style={{ position: 'relative', }} />
             <Typography variant="h6" >
               {user ? user.email : ""}
             </Typography>
@@ -155,7 +155,8 @@ export default function Navbar(props) {
           display: { xs: 'none', sm: 'block' },
           width: drawerWidth,
           flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, 
+          [`& .MuiDrawer-paper`]: {
+            width: drawerWidth,
             boxSizing: 'border-box',
             background: 'radial-gradient(circle, rgba(63,209,251,1) 0%, rgba(180,70,252,1) 100%)',
             color: 'white',
