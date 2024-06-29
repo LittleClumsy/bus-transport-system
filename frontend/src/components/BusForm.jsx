@@ -145,9 +145,9 @@ const BusForm = () => {
     };
 
     return (
-        <div className='myWebBackgroundWrapper'>
+        <div className='formBackgroundWrapper'>
     <div className='myWebBackground'></div>
-        <div>
+        <div className="page-content">
             {ShowMessage && (<MyMessage text={"You have successfully registered a Learner for the bus system. Your application is being processed."} />)}
             <form onSubmit={handleSubmit(submission)}>
 

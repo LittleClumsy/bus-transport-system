@@ -53,9 +53,9 @@ const CreateLearner = () => {
     };
 
     return (
-        <div className='myWebBackgroundWrapper'>
+        <div className='formBackgroundWrapper'>
     <div className='myWebBackground'></div>
-        <div>
+        <div className="page-content">
             {ShowMessage && (<MyMessage text={"You have successfully added a learner. You will be directed to your learners."} />)}
             <form onSubmit={handleSubmit(submission)}>
 

@@ -81,7 +81,7 @@ export default function Navbar(props) {
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/busform" selected={"/busform" === path}>
               <ListItemIcon>
-                <DirectionsBusIcon sx={{ color:  'white'}} />
+                <DirectionsBusIcon sx={{ color: 'white' }} />
               </ListItemIcon>
               <ListItemText primary={"Bus Form"} />
             </ListItemButton>
@@ -100,7 +100,7 @@ export default function Navbar(props) {
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/yourlearner" selected={"/yourlearner" === path}>
               <ListItemIcon>
-                <PeopleOutlineIcon sx={{ color:  'white'}} />
+                <PeopleOutlineIcon sx={{ color: 'white' }} />
               </ListItemIcon>
               <ListItemText primary={"Your Learners"} />
             </ListItemButton>
@@ -110,7 +110,7 @@ export default function Navbar(props) {
           <ListItem disablePadding>
             <ListItemButton onClick={logoutUser}>
               <ListItemIcon>
-                <LogoutIcon sx={{ color:  'white' }} />
+                <LogoutIcon sx={{ color: 'white' }} />
               </ListItemIcon>
               <ListItemText primary={"Logout"} />
             </ListItemButton>
@@ -140,10 +140,12 @@ export default function Navbar(props) {
                 IMPUMELELO HIGH SCHOOL
               </Typography>
             </Box>
-            <PersonIcon style={{ position: 'relative', }} />
-            <Typography variant="h6" >
-              {user ? user.email : ""}
-            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <PersonIcon style={{ marginRight: '8px' }} />
+              <Typography variant="h6">
+                {user ? user.email : ""}
+              </Typography>
+            </Box>
           </Grid>
         </Toolbar>
       </AppBar>
@@ -176,7 +178,12 @@ export default function Navbar(props) {
           display: { xs: 'block', sm: 'none' },
           width: drawerWidth,
           flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+          [`& .MuiDrawer-paper`]: {
+            width: drawerWidth, boxSizing: 'border-box',
+            background: 'radial-gradient(circle, rgba(63,209,251,1) 0%, rgba(180,70,252,1) 100%)',
+            color: 'white',
+          },
+
         }}
       >
 
