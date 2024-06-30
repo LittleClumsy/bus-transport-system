@@ -1,7 +1,6 @@
 from django.shortcuts import render
 
 from rest_framework.views import APIView
-from django.http import HttpResponse
 from rest_framework import viewsets, permissions
 from .models import *
 from rest_framework import status
@@ -72,12 +71,28 @@ class ApplicationView(APIView):
         serializer = ApplicationSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            # Get the user email from the request (assuming the user is authenticated)
             user_email = request.user.email
-            # Send confirmation email
             send_confirmation_email(user_email)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ApplicationApprovalView(APIView):
+    def get(self, request):
+        # Get the list of learner_ids already present in bus tables
+        bus_one_learners = BusOne.objects.values_list('learner_id', flat=True)
+        bus_two_learners = BusTwo.objects.values_list('learner_id', flat=True)
+        bus_three_learners = BusThree.objects.values_list(
+            'learner_id', flat=True)
+
+        # Combine all learner_ids into a single list
+        all_bus_learners = list(bus_one_learners) + \
+            list(bus_two_learners) + list(bus_three_learners)
+
+        applications = Applications.objects.filter(
+            waiting_list_number__isnull=False).exclude(learner_id__in=all_bus_learners)
+        serializer = ApplicationSerializer(applications, many=True)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 def send_confirmation_email(user_email):
@@ -98,6 +113,7 @@ def send_confirmation_email_view(request):
         return JsonResponse({'message': 'Email sent successfully'}, status=200)
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
+
 class AllBusesView(APIView):
     def get(self, request):
         bus_one_data = BusOne.objects.all()
@@ -108,6 +124,70 @@ class AllBusesView(APIView):
         bus_two_serializer = BusTwoSerializer(bus_two_data, many=True)
         bus_three_serializer = BusThreeSerializer(bus_three_data, many=True)
 
-        combined_data = bus_one_serializer.data + bus_two_serializer.data + bus_three_serializer.data
+        combined_data = bus_one_serializer.data + \
+            bus_two_serializer.data + bus_three_serializer.data
 
         return Response(combined_data, status=status.HTTP_200_OK)
+
+
+class MoveToBusTableView(APIView):
+    def post(self, request, bus_route):
+        try:
+            application = Applications.objects.get(
+                id=request.data['application_id'])
+
+            if bus_route == 1:
+                if BusOne.objects.count() < 35:
+                    BusOne.objects.create(
+                        learner_id=application.learner_id,
+                        bus_route=application.bus_route,
+                        pickup_number=application.pickup_number,
+                        dropoff_number=application.dropoff_number,
+                        pickup_name=application.pickup_name,
+                        dropoff_name=application.dropoff_name,
+                        pickup_time=application.pickup_time,
+                        dropoff_time=application.dropoff_time
+                    )
+                else:
+                    raise ValidationError(
+                        'BusOne can only have a maximum of 35 entries.')
+            elif bus_route == 2:
+                if BusTwo.objects.count() < 15:
+                    BusTwo.objects.create(
+                        learner_id=application.learner_id,
+                        bus_route=application.bus_route,
+                        pickup_number=application.pickup_number,
+                        dropoff_number=application.dropoff_number,
+                        pickup_name=application.pickup_name,
+                        dropoff_name=application.dropoff_name,
+                        pickup_time=application.pickup_time,
+                        dropoff_time=application.dropoff_time
+                    )
+                else:
+                    raise ValidationError(
+                        'BusTwo can only have a maximum of 15 entries.')
+            elif bus_route == 3:
+                if BusThree.objects.count() < 15:
+                    BusThree.objects.create(
+                        learner_id=application.learner_id,
+                        bus_route=application.bus_route,
+                        pickup_number=application.pickup_number,
+                        dropoff_number=application.dropoff_number,
+                        pickup_name=application.pickup_name,
+                        dropoff_name=application.dropoff_name,
+                        pickup_time=application.pickup_time,
+                        dropoff_time=application.dropoff_time
+                    )
+                else:
+                    raise ValidationError(
+                        'BusThree can only have a maximum of 15 entries.')
+
+            application.application_status = 'Successful'
+            application.save()
+
+            return Response({'status': 'success'}, status=status.HTTP_201_CREATED)
+
+        except Applications.DoesNotExist:
+            return Response({'error': 'Application not found'}, status=status.HTTP_404_NOT_FOUND)
+        except ValidationError as e:
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)

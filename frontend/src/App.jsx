@@ -16,6 +16,7 @@ import PasswordReset from './components/PasswordReset';
 import { useAuth } from './components/AuthContext';
 
 import './App.css'
+import ApplicationApproval from './components/ApplicationApproval';
 
 
 function App() {
@@ -50,6 +51,12 @@ function App() {
                   <Route path="/busform" element={<BusForm />} />
                   {user && user.is_admin && (
                     <Route path="/reports" element={<Reports />} />
+                  )}
+                  {user && user.is_admin && (
+                    <Route path="/reports/delete/:id" element={<DeleteLearner />} />
+                  )}
+                  {user && user.is_admin && (
+                    <Route path="/applicationapproval" element={<ApplicationApproval />} />
                   )}
                 </Route>
 
