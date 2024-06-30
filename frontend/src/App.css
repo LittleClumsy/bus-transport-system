@@ -6,7 +6,10 @@
   justify-content: center;
   background: rgb(63,209,251);
   background: radial-gradient(circle, rgba(63,209,251,1) 0%, rgba(180,70,252,1) 100%);
-  
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
 .whiteBox {
@@ -31,7 +34,7 @@
 .itemBox.bg{
   display: flex;
   justify-content: center;
-  background: rgb(91, 10, 152);
+  background: rgb(157, 45, 241);
   font-size: 18px;
   color: white;
   border-radius: 10px;
@@ -61,7 +64,7 @@
   width: 100%;
   height: 100vh;
   opacity: 40%;
-  background: rgb(212, 90, 249);
+  background: rgb(219, 216, 220);
   z-index: -1;
 
 }
@@ -108,9 +111,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding-top: 50px; */
   overflow: hidden;
+}
 
+.homeBackgroundWrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('../assets/school_bus.png') no-repeat center center;
+  background-size: cover;
 }
 
 .formBackgroundWrapper {

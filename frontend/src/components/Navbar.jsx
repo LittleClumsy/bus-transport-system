@@ -124,7 +124,7 @@ export default function Navbar(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, background: 'radial-gradient(circle, rgba(63,209,251,1) 0%, rgba(180,70,252,1) 100%)' }}>
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, background: 'rgb(91, 10, 152)' }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -160,7 +160,7 @@ export default function Navbar(props) {
           [`& .MuiDrawer-paper`]: {
             width: drawerWidth,
             boxSizing: 'border-box',
-            background: 'radial-gradient(circle, rgba(63,209,251,1) 0%, rgba(180,70,252,1) 100%)',
+            background: 'rgb(91, 10, 152)',
             color: 'white',
           },
         }}
