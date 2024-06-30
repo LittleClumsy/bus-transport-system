@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 class Parent(models.Model):
@@ -61,6 +62,11 @@ class BusOne(models.Model):
     dropoff_name = models.CharField(max_length=15)
     pickup_time = models.CharField(max_length=10)
     dropoff_time = models.CharField(max_length=10)
+    
+    def save(self, *args, **kwargs):
+        if BusOne.objects.count() >= 35:
+            raise ValidationError('BusOne can only have a maximum of 35 entries.')
+        super(BusOne, self).save(*args, **kwargs)
 
 
 class BusTwo(models.Model):
@@ -72,6 +78,11 @@ class BusTwo(models.Model):
     dropoff_name = models.CharField(max_length=15)
     pickup_time = models.CharField(max_length=10)
     dropoff_time = models.CharField(max_length=10)
+    
+    def save(self, *args, **kwargs):
+        if BusTwo.objects.count() >= 15:
+            raise ValidationError('BusTwo can only have a maximum of 15 entries.')
+        super(BusTwo, self).save(*args, **kwargs)
 
 
 class BusThree(models.Model):
@@ -83,3 +94,8 @@ class BusThree(models.Model):
     dropoff_name = models.CharField(max_length=15)
     pickup_time = models.CharField(max_length=10)
     dropoff_time = models.CharField(max_length=10)
+    
+    def save(self, *args, **kwargs):
+        if BusThree.objects.count() >= 15:
+            raise ValidationError('BusThree can only have a maximum of 15 entries.')
+        super(BusThree, self).save(*args, **kwargs)

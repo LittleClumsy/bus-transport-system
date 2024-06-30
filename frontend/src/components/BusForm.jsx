@@ -12,7 +12,6 @@ import '../App.css';
 import MyMessage from './Message';
 
 
-
 const BusForm = () => {
 
     const defaultValues = {
@@ -24,7 +23,7 @@ const BusForm = () => {
         dropoff_name: '',
         pickup_time: '',
         dropoff_time: '',
-        application_status: 'Pending',
+        application_status: 'Applied',
         parent_id: '',
     }
     const { user } = useAuth();
@@ -104,8 +103,6 @@ const BusForm = () => {
             setValue('pickup_time', suburbData[selectedSuburb].pickup_time);
         }
     }, [selectedSuburb, setValue]);
-
-
 
 
     const submission = (data) => {
