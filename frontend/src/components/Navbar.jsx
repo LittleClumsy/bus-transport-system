@@ -78,14 +78,16 @@ export default function Navbar(props) {
             </ListItem>
           )}
 
-          <ListItem disablePadding>
-            <ListItemButton component={Link} to="/applicationapproval" selected={"/applicationapproval" === path}>
-              <ListItemIcon>
-                <DirectionsBusIcon sx={{ color: 'white' }} />
-              </ListItemIcon>
-              <ListItemText primary={"Application Approval"} />
-            </ListItemButton>
-          </ListItem>
+          {user && user.is_admin && (
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/applicationapproval" selected={"/applicationapproval" === path}>
+                <ListItemIcon>
+                  <DirectionsBusIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary={"Application Approval"} />
+              </ListItemButton>
+            </ListItem>
+          )}
 
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/busform" selected={"/busform" === path}>

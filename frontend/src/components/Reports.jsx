@@ -7,9 +7,7 @@ import { Link } from "react-router-dom";
 
 import { useAuth } from './AuthContext';
 
-
 const Reports = () => {
-
     const [myData, setMyData] = useState([])
     const [loading, setLoading] = useState(true)
     const { user } = useAuth();
@@ -28,23 +26,21 @@ const Reports = () => {
     }, []);
 
     const columns = [
-        { accessorKey: 'learner_id', header: 'Learner ID', size:100 },
-        { accessorKey: 'bus_route', header: 'Bus Route', size:100 },
-        { accessorKey: 'pickup_number', header: 'Pickup Number', size:100 },
-        { accessorKey: 'dropoff_number', header: 'Dropoff Number', size:100 },
-        { accessorKey: 'pickup_name', header: 'Pickup Name', size:100 },
-        { accessorKey: 'dropoff_name', header: 'Dropoff Name', size:100 },
-        { accessorKey: 'pickup_time', header: 'Pickup Time', size:100 },
-        { accessorKey: 'dropoff_time', header: 'Dropoff Time', size:100 },
-        // { accessorKey: 'application_status', header: 'Application Status', size:100 },
-        // { accessorKey: 'waiting_list_number', header: 'Waiting List Number', size:100 },
+        { accessorKey: 'learner_id', header: 'Learner ID', size: 100 },
+        { accessorKey: 'bus_route', header: 'Bus Route', size: 100 },
+        { accessorKey: 'pickup_number', header: 'Pickup Number', size: 100 },
+        { accessorKey: 'dropoff_number', header: 'Dropoff Number', size: 100 },
+        { accessorKey: 'pickup_name', header: 'Pickup Name', size: 100 },
+        { accessorKey: 'dropoff_name', header: 'Dropoff Name', size: 100 },
+        { accessorKey: 'pickup_time', header: 'Pickup Time', size: 100 },
+        { accessorKey: 'dropoff_time', header: 'Dropoff Time', size: 100 },
     ];
 
     return (
         <div className='myWebBackgroundWrapper'>
             <div className='myWebBackground'></div>
             <div className="page-content">
-            <Box sx={{ marginBottom: '10px', borderRadius: '10px' }}>
+                <Box sx={{ marginBottom: '10px', borderRadius: '10px' }}>
                     <Typography className='itemBox bg'>
                         Bus Reports
                     </Typography>
@@ -52,15 +48,15 @@ const Reports = () => {
                 {loading ? (
                     <p>Loading...</p>
                 ) : (
-                    <MaterialReactTable columns={columns} data={myData} enableRowActions 
-                    renderRowActions={({ row }) => (
-                            <Box sx={{ display: 'flex',  gap: '12px' }}>
+                    <MaterialReactTable columns={columns} data={myData} enableRowActions
+                        renderRowActions={({ row }) => (
+                            <Box sx={{ display: 'flex', gap: '12px' }}>
                                 <IconButton color="error" component={Link} to={`delete/${row.original.id}`}>
                                     <DeleteIcon />
                                 </IconButton>
                             </Box>
-                            )}
-                            />
+                        )}
+                    />
                 )}
             </div>
         </div>

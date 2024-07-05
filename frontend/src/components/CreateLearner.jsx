@@ -9,8 +9,6 @@ import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom'
 import MyMessage from './Message';
 
-
-
 const CreateLearner = () => {
 
     const defaultValues = {

@@ -18,7 +18,6 @@ const PasswordResetRequest = () => {
         AxiosInstance.post(`api/password_reset/`, {
             email: data.email
         })
-
             .then((response) => {
                 setShowMessage(true)
             })

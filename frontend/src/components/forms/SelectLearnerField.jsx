@@ -7,7 +7,6 @@ import { Controller, set } from 'react-hook-form';
 import AxiosInstance from '../AxiosInstance';
 
 export default function SelectLearnerField(props) {
-  // const [learnerNames, setLearnerNames] = React.useState([]);
   const [learners, setLearners] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 
@@ -16,8 +15,6 @@ export default function SelectLearnerField(props) {
       AxiosInstance.get(`learner-list/`)
         .then((res) => {
           setLearners(res.data);
-          // const names = res.data.map(learner => learner.learner_name);
-          // setLearnerNames(names);
           setLoading(false);
           console.log('Learner Names:', res.data);
         })
@@ -38,7 +35,7 @@ export default function SelectLearnerField(props) {
       <Controller
         name={name}
         control={control}
-        defaultValue="" // Set default value to avoid uncontrolled to controlled component warning
+        defaultValue=""
         render={({
           field: { onChange, value },
           fieldState: { invalid, error },

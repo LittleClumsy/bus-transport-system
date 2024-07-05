@@ -41,7 +41,7 @@ const Login = () => {
         <div className="myBackground">
             {ShowMessage ? <MyMessage text={"Login failed, please try again, or reset your password."} /> : null}
             <form onSubmit={handleSubmit(submission)} className="whiteBox">
-                <Box className="title">Login for App</Box>
+                <Box className="title">Login for Impumelelo High School</Box>
 
                 <Box className={"itemBox"}>
                     <MyEmailTextField
@@ -67,8 +67,8 @@ const Login = () => {
                 </Box>
 
                 <Box className="itemBox" sx={{ flexDirection: 'column' }}>
-                    <Link to='/register'>No account yet? Register Now!</Link>
-                    <Link to='/request/password_reset'>Forgot Password?</Link>
+                    <Link to='/register'>No account yet? Register now!</Link>
+                    <Link to='/request/password_reset'>Forgot password?</Link>
                 </Box>
             </form>
         </div>
