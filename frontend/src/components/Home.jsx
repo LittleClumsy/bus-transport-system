@@ -7,10 +7,10 @@ const Home = () => {
   return (
     <div className='homeBackgroundWrapper'>
       <Typography variant='h3' className='welcome-heading' style={{ fontFamily: 'Helvetica, arial' }}>
-        Volkswagon  
+        Impumelelo  
       </Typography>
       <Typography variant='h4' className='welcome-heading' style={{ fontFamily: 'Helvetica, serif', color: 'rgb(255,151,255)' }}>
-        ~Educating for a brighter f uture~
+        ~Educating for a brighter future~
       </Typography>
 
       <footer style={{ marginTop: '30px', color: 'white', backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '10px' }}>
