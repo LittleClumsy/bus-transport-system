@@ -1,1 +1,1 @@
-web: gunicorn bus-transport-system.wsgi --log-file -
+web: gunicorn backend.bus-transport-system.wsgi --log-file -
